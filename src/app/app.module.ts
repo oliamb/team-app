@@ -14,17 +14,15 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
-import { ShellComponent, ShellTitleDirective } from './shell/shell.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app.routing.module';
 import { reducer } from './store';
+import { LoginModule } from 'app/login/login.module';
+import { ShellModule } from 'app/shell/shell.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    ShellComponent,
-    ShellTitleDirective,
     PageNotFoundComponent
   ],
   imports: [
@@ -32,6 +30,8 @@ import { reducer } from './store';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ShellModule,
+    LoginModule,
     MaterialModule,
     StoreModule.provideStore(reducer),
     RouterStoreModule.connectRouter(),
