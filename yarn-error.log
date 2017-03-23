@@ -1,0 +1,82 @@
+Arguments: 
+  /Users/olivier/.nvm/versions/node/v6.7.0/bin/node /Users/olivier/.nvm/versions/node/v6.7.0/bin/yarn add @ngrx/core @ngrx/store @ngrx/router-store @ngrx/effects @ng2-facebook-sdk @angular/material
+
+PATH: 
+  /Users/olivier/.nvm/versions/node/v6.7.0/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  0.21.3
+
+Node version: 
+  6.7.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "team-ui",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+      "ng": "ng",
+      "start": "ng serve",
+      "build": "ng build",
+      "test": "ng test",
+      "lint": "ng lint",
+      "e2e": "ng e2e"
+    },
+    "private": true,
+    "dependencies": {
+      "@angular/common": "^2.4.0",
+      "@angular/compiler": "^2.4.0",
+      "@angular/core": "^2.4.0",
+      "@angular/forms": "^2.4.0",
+      "@angular/http": "^2.4.0",
+      "@angular/platform-browser": "^2.4.0",
+      "@angular/platform-browser-dynamic": "^2.4.0",
+      "@angular/router": "^3.4.0",
+      "core-js": "^2.4.1",
+      "rxjs": "^5.1.0",
+      "zone.js": "^0.7.6"
+    },
+    "devDependencies": {
+      "@angular/cli": "1.0.0-rc.4",
+      "@angular/compiler-cli": "^2.4.0",
+      "@types/jasmine": "2.5.38",
+      "@types/node": "~6.0.60",
+      "codelyzer": "~2.0.0",
+      "jasmine-core": "~2.5.2",
+      "jasmine-spec-reporter": "~3.2.0",
+      "karma": "~1.4.1",
+      "karma-chrome-launcher": "~2.0.0",
+      "karma-cli": "~1.0.1",
+      "karma-jasmine": "~1.1.0",
+      "karma-jasmine-html-reporter": "^0.2.2",
+      "karma-coverage-istanbul-reporter": "^0.2.0",
+      "protractor": "~5.1.0",
+      "ts-node": "~2.0.0",
+      "tslint": "~4.5.0",
+      "typescript": "~2.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@ng2-facebook-sdk: Not found
+      at Request.params.callback [as _callback] (/Users/olivier/.nvm/versions/node/v6.7.0/lib/node_modules/yarn/lib/util/request-manager.js:313:18)
+      at Request.self.callback (/Users/olivier/.nvm/versions/node/v6.7.0/lib/node_modules/yarn/node_modules/request/request.js:188:22)
+      at emitTwo (events.js:106:13)
+      at Request.emit (events.js:191:7)
+      at Request.<anonymous> (/Users/olivier/.nvm/versions/node/v6.7.0/lib/node_modules/yarn/node_modules/request/request.js:1171:10)
+      at emitOne (events.js:96:13)
+      at Request.emit (events.js:188:7)
+      at IncomingMessage.<anonymous> (/Users/olivier/.nvm/versions/node/v6.7.0/lib/node_modules/yarn/node_modules/request/request.js:1091:12)
+      at IncomingMessage.g (events.js:291:16)
+      at emitNone (events.js:91:20)
+      at IncomingMessage.emit (events.js:185:7)
