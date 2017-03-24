@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FacebookService, FacebookLoginResponse, FacebookInitParams } from 'ng2-facebook-sdk/dist';
+import { Store } from '@ngrx/store';
+import { State } from 'app/store';
+import * as facebook from 'app/store/facebook';
 
 @Component({
   selector: 'app-login',
@@ -8,18 +10,11 @@ import { FacebookService, FacebookLoginResponse, FacebookInitParams } from 'ng2-
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FacebookService) { }
+  constructor(private store: Store<State>) { }
 
-  ngOnInit() {
-    const fbParams: FacebookInitParams = { appId: '106592409880991', xfbml: true, version: 'v2.8' };
-    this.fb.init(fbParams);
-  }
+  ngOnInit() { }
 
   login(): void {
-    this.fb.login().then(
-      (response: FacebookLoginResponse) => console.log(response),
-      (error: any) => console.error(error)
-    );
+    this.store.dispatch(new facebook.Login());
   }
-
 }

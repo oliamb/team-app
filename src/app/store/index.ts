@@ -37,6 +37,8 @@ import { combineReducers } from '@ngrx/store';
  * notation packages up all of the exports into a single object.
  */
 import * as fromShell from './shell';
+import * as fromFacebook from './facebook';
+
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
@@ -44,6 +46,7 @@ import * as fromShell from './shell';
  */
 export interface State {
   shell: fromShell.State;
+  facebook: fromFacebook.State;
 }
 
 /**
@@ -54,6 +57,7 @@ export interface State {
  * the result from right to left.
  */
 const reducers = {
+  facebook: fromFacebook.reducer,
   shell: fromShell.reducer,
   router: fromRouter.routerReducer,
 };
@@ -97,3 +101,6 @@ export const getShellState = (state: State) => state.shell;
  * pieces of state.
  */
  export const getShellTitle = createSelector(getShellState, fromShell.getTitle);
+
+export const getFacebookState = (state: State) => state.facebook;
+export const getFacebookLoginResponse = createSelector(getFacebookState, fromFacebook.getLoginResponse);
