@@ -103,4 +103,4 @@ export const getShellState = (state: State) => state.shell;
  export const getShellTitle = createSelector(getShellState, fromShell.getTitle);
 
 export const getFacebookState = (state: State) => state.facebook;
-export const getFacebookLoginResponse = createSelector(getFacebookState, fromFacebook.getLoginResponse);
+export const getFacebookLoginStatus = createSelector(getFacebookState, fromFacebook.getLoginStatus);

@@ -1,3 +1,6 @@
 <h1 *appShellTitle i18n>Login</h1>
 
 <button md-button (click)="login($event)" i18n>Login with Facebook</button>
+<button md-button (click)="profile($event)" i18n>Profile from Facebook</button>
+
+<pre>{{loginStatusObs|async|json}}<pre>

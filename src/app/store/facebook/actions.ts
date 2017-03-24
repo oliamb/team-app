@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 import { type } from '../util';
-import { FacebookLoginResponse } from 'ng2-facebook-sdk/dist';
+import * as models from './models';
+import { FacebookLoginResponse, FacebookLoginStatus } from 'ng2-facebook-sdk/dist';
 
 /**
  * For each action type in an action group, make a simple
@@ -14,6 +15,11 @@ export const ActionTypes = {
   LOGIN:           type('[Facebook] Login'),
   LOGIN_COMPLETE:           type('[Facebook] Login Complete'),
   LOGIN_FAILURE:           type('[Facebook] Login Failure'),
+  CHECK_LOGIN_STATUS: type('[Facebook] Check Login Status'),
+  LOGIN_STATUS: type('[Facebook] Login Status'),
+  PROFILE: type('[Facebook] Profile'),
+  PROFILE_COMPLETE: type('[Facebook] Profile Complete'),
+  PROFILE_FAILURE: type('[Facebook] Profile Failure'),
 };
 
 /**
@@ -25,8 +31,6 @@ export const ActionTypes = {
  */
 export class Login implements Action {
   type = ActionTypes.LOGIN;
-
-  constructor() { }
 }
 
 export class LoginComplete implements Action {
@@ -41,6 +45,31 @@ export class LoginFailure implements Action {
   constructor(public payload: any) { }
 }
 
+export class CheckLoginStatus implements Action {
+  type = ActionTypes.CHECK_LOGIN_STATUS;
+}
+
+export class LoginStatus implements Action {
+  type = ActionTypes.LOGIN_STATUS;
+  constructor(public payload: FacebookLoginStatus) { };
+}
+
+export class Profile implements Action {
+  type = ActionTypes.PROFILE;
+  constructor() { }
+}
+
+export class ProfileComplete implements Action {
+  type = ActionTypes.PROFILE_COMPLETE;
+  constructor(public payload: models.FacebookUserProfile) { }
+}
+
+export class ProfileFailure implements Action {
+  type = ActionTypes.PROFILE_FAILURE;
+  constructor(public payload: any) { }
+}
+
+
 /**
  * Export a type alias of all actions in this action group
  * so that reducers can easily compose action types
@@ -49,4 +78,9 @@ export type Actions
   = Login
   | LoginComplete
   | LoginFailure
+  | CheckLoginStatus
+  | LoginStatus
+  | Profile
+  | ProfileComplete
+  | ProfileFailure
   ;

@@ -1,20 +1,27 @@
 import * as facebook from './actions';
-import { FacebookLoginResponse } from "ng2-facebook-sdk/dist";
+import * as models from './models';
+import { FacebookLoginResponse, FacebookLoginStatus } from 'ng2-facebook-sdk/dist';
 
 export interface State {
-  loginResponse: FacebookLoginResponse | null;
+  loginStatus: FacebookLoginStatus | null;
+  profile: models.FacebookUserProfile | null;
 };
 
 export const initialState: State = {
-  loginResponse: null,
+  loginStatus: null,
+  profile: null,
 };
 
 export function reducer(state = initialState, action: facebook.Actions): State {
   switch (action.type) {
     case facebook.ActionTypes.LOGIN:
-      return Object.assign({}, state, { loginResponse: null } );
+      return Object.assign({}, state, { loginStatus: null } );
     case facebook.ActionTypes.LOGIN_COMPLETE:
-      return Object.assign({}, state, { loginResponse: action.payload } );
+      return Object.assign({}, state, { loginStatus: action.payload } );
+    case facebook.ActionTypes.LOGIN_STATUS:
+      return Object.assign({}, state, { loginStatus: action.payload } );
+    case facebook.ActionTypes.PROFILE_COMPLETE:
+      return Object.assign({}, state, { profile: action.payload } );
     default:
       return state;
   }
@@ -29,4 +36,4 @@ export function reducer(state = initialState, action: facebook.Actions): State {
  * use-case.
  */
 
-export const getLoginResponse = (state: State) => state.loginResponse;
+export const getLoginStatus = (state: State) => state.loginStatus;
