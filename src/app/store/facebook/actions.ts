@@ -13,10 +13,10 @@ import { FacebookLoginResponse, FacebookLoginStatus } from 'ng2-facebook-sdk/dis
  */
 export const ActionTypes = {
   LOGIN:           type('[Facebook] Login'),
-  LOGIN_COMPLETE:           type('[Facebook] Login Complete'),
+  LOGGED_IN:           type('[Facebook] Login Complete'),
   LOGIN_FAILURE:           type('[Facebook] Login Failure'),
   CHECK_LOGIN_STATUS: type('[Facebook] Check Login Status'),
-  LOGIN_STATUS: type('[Facebook] Login Status'),
+  CHECK_LOGIN_STATUS_FAILED: type('[Facebook] Check Login Status Failed'),
   PROFILE: type('[Facebook] Profile'),
   PROFILE_COMPLETE: type('[Facebook] Profile Complete'),
   PROFILE_FAILURE: type('[Facebook] Profile Failure'),
@@ -33,8 +33,8 @@ export class Login implements Action {
   type = ActionTypes.LOGIN;
 }
 
-export class LoginComplete implements Action {
-  type = ActionTypes.LOGIN_COMPLETE;
+export class LoggedIn implements Action {
+  type = ActionTypes.LOGGED_IN;
 
   constructor(public payload: FacebookLoginResponse) { }
 }
@@ -49,9 +49,10 @@ export class CheckLoginStatus implements Action {
   type = ActionTypes.CHECK_LOGIN_STATUS;
 }
 
-export class LoginStatus implements Action {
-  type = ActionTypes.LOGIN_STATUS;
-  constructor(public payload: FacebookLoginStatus) { };
+export class CheckLoginStatusFailed implements Action {
+  type = ActionTypes.CHECK_LOGIN_STATUS_FAILED;
+
+  constructor(public payload: any) { }
 }
 
 export class Profile implements Action {
@@ -76,10 +77,9 @@ export class ProfileFailure implements Action {
  */
 export type Actions
   = Login
-  | LoginComplete
+  | LoggedIn
   | LoginFailure
   | CheckLoginStatus
-  | LoginStatus
   | Profile
   | ProfileComplete
   | ProfileFailure

@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/takeUntil';
 
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -25,11 +26,17 @@ import { LoginModule } from 'app/login/login.module';
 import { ShellModule } from 'app/shell/shell.module';
 
 import { FacebookEffects } from 'app/backend/facebook.effects';
+import { ChatPageComponent } from './chat-page/chat-page.component';
+import { AuthGuard } from './guards';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ChatPageComponent
+  ],
+  providers: [
+    AuthGuard,
   ],
   imports: [
     AppRoutingModule,

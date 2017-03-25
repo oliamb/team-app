@@ -15,7 +15,7 @@ export class FacebookEffects {
   .ofType(facebook.ActionTypes.LOGIN)
   .switchMap(() => {
     return Observable.from(this.fb.login())
-    .map((response: FacebookLoginResponse) => new facebook.LoginComplete(response))
+    .map((response: FacebookLoginResponse) => new facebook.LoggedIn(response))
     .catch((error: any) => Observable.of(new facebook.LoginFailure(error)));
   });
 
@@ -33,8 +33,8 @@ export class FacebookEffects {
   .ofType(facebook.ActionTypes.CHECK_LOGIN_STATUS)
   .switchMap(() => {
     return Observable.from(this.fb.getLoginStatus())
-    .map(response => new facebook.LoginStatus(response))
-    .catch(() => Observable.of(new facebook.LoginStatus(null)));
+    .map(response => new facebook.LoggedIn(response))
+    .catch((err) => Observable.of(new facebook.CheckLoginStatusFailed(err)));
   });
 
   @Effect({dispatch: false})

@@ -16,9 +16,7 @@ export function reducer(state = initialState, action: facebook.Actions): State {
   switch (action.type) {
     case facebook.ActionTypes.LOGIN:
       return Object.assign({}, state, { loginStatus: null } );
-    case facebook.ActionTypes.LOGIN_COMPLETE:
-      return Object.assign({}, state, { loginStatus: action.payload } );
-    case facebook.ActionTypes.LOGIN_STATUS:
+    case facebook.ActionTypes.LOGGED_IN:
       return Object.assign({}, state, { loginStatus: action.payload } );
     case facebook.ActionTypes.PROFILE_COMPLETE:
       return Object.assign({}, state, { profile: action.payload } );
